@@ -155,6 +155,8 @@ function initializeMap() {
   placeData is the object returned from search results containing information
   about a single location.
   */
+  var infoWindow = new google.maps.InfoWindow();
+
   function createMapMarker(placeData) {
 
     // The next lines save location data from the search result object to local variables
@@ -173,20 +175,19 @@ function initializeMap() {
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
-    var infoWindow = new google.maps.InfoWindow({
-      content: name
-    });
+
 
     // hmmmm, I wonder what this is about...
-    google.maps.event.addDomListener(window, 'load', function() {
-        google.maps.event.addListener(marker, 'click', function() {
-          infoWindow.open(map1, marker);
-        });
-    });
-    // google.maps.event.addListener(marker, 'click', function() {
+
+    var evictionList = [];
+
+    google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
-      //infoWindow.open(map, marker);
-    // });
+      infoWindow.setContent(name);
+      infoWindow.open(map, marker);
+     });
+
+
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
