@@ -20,7 +20,8 @@ h6 {
 
 .education-entry,
 .work-entry,
-.project-entry {
+.project-entry.
+.online-entry {
   padding: 0 5%;
 }
 
@@ -67,7 +68,6 @@ h5 {
   font-size: 14px;
   color: #999;
   line-height: 16px;
-  float: left;
 }
 
 .location-text {
@@ -168,6 +168,9 @@ span {
   text-align: center;
 }
 
+#info-window {
+  color:blue;
+}
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {
