@@ -9,8 +9,8 @@ var bio = {
 		"twitter": "jdizzle"
 	},
 	"bioPic": "images/kitten.jpg",
-	"welcomeMessage": "Hi!",
-	"skills": ["microbiology", "playing piano"]
+	"welcomeMessage": "Seeking opportunities to further develop my skills",
+	"skills": ["front end development", "microbiology", "playing piano"]
 }
 
 var work = {
@@ -20,21 +20,24 @@ var work = {
 		"title": "Microbiologist",
 		"location": "Denver, CO",
 		"dates": "2015",
-		"description": "Performed microbiology techniques to detect pathogens in food."
+		"description": "Performed microbiology techniques to detect pathogens in food.",
+		"url": "http://www.fda.gov/ScienceResearch/FieldScience/ucm258934.htm"
 		},
 		{
 		"employer": "Colorado State Public Health Laboratory",
 		"title": "Public Health Microbiologist",
 		"location": "Denver, CO",
 		"dates": "2013-2015",
-		"description": "Performed public health microbiology."
+		"description": "Performed public health microbiology.",
+		"url": "https://www.colorado.gov/pacific/cdphe/categories/services-and-information/laboratory-services"
 		},
 		{
 		"employer": "Quest Diagnostics",
 		"title": "Medical Technologist",
 		"location": "Denver, CO",
 		"dates": "2012-2015",
-		"description": "Performed microbiology and molecular biology diagnostic methods."
+		"description": "Performed microbiology and molecular biology diagnostic methods.",
+		"url": "http://www.questdiagnostics.com/home.html"
 		}
 	]
 }
@@ -86,13 +89,15 @@ var projects = {
 		"title": "M(ASCP)",
 		"dates": "2014 - present",
 		"description": "Microbiology Medical Technologist Certificate",
-		"images": "images/ascp.png"
+		"images": "images/ascp.png",
+		"url": "http://www.ascp.org/certification"
 		},
 		{
 		"title": "PHM2125",
 		"dates": "2012 - present",
 		"description": "California Public Health Microbiologist Certificate",
-		"images": "images/cdph.png"
+		"images": "images/cdph.png",
+		"url": "https://www.cdph.ca.gov/programs/lfs/Pages/default.aspx"
 		}
 	]
 }
@@ -124,14 +129,15 @@ bio.display =  function() {
 }
 
 work.display = function() {
-	for (job in this.jobs) {
+	for (var job in this.jobs) {
 		$("#workExperience").append(HTMLworkStart);
+		var formattedURL = HTMLworkURL.replace("%data%", this.jobs[job].url);
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", this.jobs[job].employer);
 		var formattedTitle = HTMLworkTitle.replace("%data%", this.jobs[job].title);
 		var formattedWorkDates = HTMLworkDates.replace("%data%", this.jobs[job].dates);
 		var formattedLocation = HTMLworkLocation.replace("%data%", this.jobs[job].location);
 		var formattedDescription = HTMLworkDescription.replace("%data%", this.jobs[job].description);
-		$(".work-entry:last").append(formattedEmployer + formattedTitle);
+		$(".work-entry:last").append(formattedURL + formattedEmployer + formattedTitle);
 		$(".work-entry:last").append(formattedWorkDates);
 		$(".work-entry:last").append(formattedLocation);
 		$(".work-entry:last").append(formattedDescription);
@@ -139,16 +145,17 @@ work.display = function() {
 }
 
 projects.display = function() {
-	for (project in this.projects) {
+	for (var project in this.projects) {
 		$("#projects").append(HTMLprojectStart);
-		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", this.projects[project].title);
-		var formattedProjectDates = HTMLprojectDates.replace("%data%", this.projects[project].dates);
-		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", this.projects[project].description);
-		var formattedProjectImage = HTMLprojectImage.replace("%data%", this.projects[project].images);
-		$(".project-entry:last").append(formattedProjectTitle);
-		$(".project-entry:last").append(formattedProjectDates);
-		$(".project-entry:last").append(formattedProjectDescription);
-		$(".project-entry:last").append(formattedProjectImage);
+		var formattedURL = HTMLprojectURL.replace("%data%", this.projects[project].url);
+		var formattedTitle = HTMLprojectTitle.replace("%data%", this.projects[project].title);
+		var formattedDates = HTMLprojectDates.replace("%data%", this.projects[project].dates);
+		var formattedDescription = HTMLprojectDescription.replace("%data%", this.projects[project].description);
+		var formattedImage = HTMLprojectImage.replace("%data%", this.projects[project].images);
+		$(".project-entry:last").append(formattedURL + formattedTitle);
+		$(".project-entry:last").append(formattedDates);
+		$(".project-entry:last").append(formattedDescription);
+		$(".project-entry:last").append(formattedImage);
 	}
 }
 
