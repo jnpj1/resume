@@ -97,7 +97,7 @@ var projects = {
 	]
 }
 
-bio.displayBio =  function() {
+bio.display =  function() {
 	var formattedName = HTMLheaderName.replace("%data%", this.name);
 	var formattedRole = HTMLheaderRole.replace("%data%", this.role);
 	var formattedEmail = HTMLemail.replace("%data%", this.contacts.email);
@@ -123,7 +123,7 @@ bio.displayBio =  function() {
 	}
 }
 
-work.displayWork = function() {
+work.display = function() {
 	for (job in this.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", this.jobs[job].employer);
@@ -138,7 +138,7 @@ work.displayWork = function() {
 	}	
 }
 
-projects.displayProjects = function() {
+projects.display = function() {
 	for (project in this.projects) {
 		$("#projects").append(HTMLprojectStart);
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", this.projects[project].title);
@@ -152,7 +152,7 @@ projects.displayProjects = function() {
 	}
 }
 
-education.displayEducation = function() {
+education.display = function() {
 	for (var school in this.schools) {
 		$("#education").append(HTMLschoolStart);
 		var formattedURL = HTMLschoolURL.replace("%data%", this.schools[school].url);
@@ -180,19 +180,9 @@ education.displayEducation = function() {
 	}
 }
 
-bio.displayBio();
-work.displayWork();
-projects.displayProjects();
-education.displayEducation();
-
-function inName(name) {
-	name = name.trim().split(" ");
-	console.log(name);
-	name[1] = name[1].toUpperCase();
-	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-	return name[0] + " " + name[1];
-}
-
-$("#main").append(internationalizeButton);
+bio.display();
+work.display();
+projects.display();
+education.display();
 
 $("#mapDiv").append(googleMap);
