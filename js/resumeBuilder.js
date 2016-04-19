@@ -4,7 +4,7 @@ var bio = {
 	"contacts": {
 		"email": "jdizzle@gmail.com",
 		"location": "Gloucester, UK",
-		"mobile": "(123)456-7890",
+		"mobile": "123-456-7890",
 		"github": "jnburke1",
 		"twitter": "jdizzle"
 	},
@@ -128,6 +128,15 @@ bio.display =  function() {
 	}
 }
 
+bio.connect = function(){
+	var formattedEmail = HTMLconnectEmail.replace("%data%", this.contacts.email);
+	var formattedMobile = HTMLconnectPhone.replace("%data%", this.contacts.mobile);
+	var formattedSkype = HTMLconnectSkype.replace("%data%", this.contacts.email);
+	$("#footerContacts").append(formattedEmail);
+	$("#footerContacts").append(formattedMobile);
+	$("#footerContacts").append(formattedSkype);
+}
+
 work.display = function() {
 	for (var job in this.jobs) {
 		$("#workExperience").append(HTMLworkStart);
@@ -188,6 +197,7 @@ education.display = function() {
 }
 
 bio.display();
+bio.connect();
 work.display();
 projects.display();
 education.display();

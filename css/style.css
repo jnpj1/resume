@@ -22,12 +22,12 @@ h6 {
 .work-entry,
 .project-entry,
 .online-entry {
-  padding: 0 5%;
+  padding: 5px 5%;
 }
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #4d0026;;
   line-height: 48px;
   display: inline;
 }
@@ -41,9 +41,8 @@ h2 {
 }
 
 h3 {
-  font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: #999;;
   line-height: 22px;
 }
 
@@ -62,12 +61,18 @@ h5 {
 
 }
 
+.work-entry a,
+.project-entry a {
+  display: block;
+}
 
 .date-text {
   font-style: italic;
   font-size: 14px;
   color: #999;
   line-height: 16px;
+  width: 75%;
+  display:inline-block;
 }
 
 .location-text {
@@ -75,7 +80,10 @@ h5 {
   font-size: 14px;
   color: #999;
   line-height: 16px;
+  width: 25%;
   float: right;
+  display: inline-block;
+  text-align: right;
 
 }
 
@@ -86,7 +94,7 @@ p {
 }
 
 a {
-  color: #1199c3;
+  color: #669999;
   text-decoration: none;
   margin-top: 10px;
   display: inline-block;
@@ -100,16 +108,16 @@ a {
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #4d0026;
   display: none;
 }
 
-.orange {
-  background-color: #f5ae23;
+.pop-text {
+  color: #4d0026;
 }
 
-.orange-text {
-  color: #f5ae23;
+.pop-color {
+  background-color: #4d0026;
 }
 
 .white-text {
@@ -123,13 +131,9 @@ a {
   clear:both;
 }
 
-.dark-gray {
-  background-color: #4a4a4a;
-}
-
-/* TODO: Replace with image later */
+.dark-gray,
 #header {
-  background-color: #484848;
+  background-color: #616371;
 }
 
 .flex-box {
@@ -158,6 +162,7 @@ ul {
 
 img {
   padding: 10px;
+  max-width:100%;
 }
 
 span {
@@ -169,7 +174,45 @@ span {
 }
 
 #info-window {
-  color:blue;
+  color: dark-gray;
+  font-family: "Roboto", sans-serif;  
+  font-size: 14px;
+  text-shadow: 1px 1px 1px gray;
+}
+
+iron-icon {
+  color: white;
+}
+
+.phone-icon {
+  margin-left: 55px;
+  display: none;
+}
+
+.email-icon a,
+.phone-icon a {
+  margin-top: 5px;
+}
+
+li div {
+  display: inline-block;
+  height: 30px;
+}
+
+li div p {
+  margin-top: -36px;
+}
+
+#map {
+  display: block;
+  height: 100%;
+  margin: 0 5%;
+}
+
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
 }
 /* Media queries to handle various device widths */
 
@@ -197,16 +240,29 @@ span {
   }
 }
 
-#map {
-  display: block;
-  height: 100%;
-  margin: 0 5%;
+@media only screen and (max-width: 480px) {
+  .phone-icon {
+    display: list-item;
+  }
 }
 
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
+@media only screen and (max-width: 430px) {
+  #name {
+    display: block;
+    text-align: center;
+  }
+  .role {
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 345px) {
+  #lets-connect {
+    margin-top: 20%;
+  }
+  .role {
+    margin-left: 15%;
+  }
 }
 
 @media only screen and (min-width: 750px) {
