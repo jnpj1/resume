@@ -1,28 +1,20 @@
 var bio = {
-	"name": "J. Dizzle",
-	"role": "Budding Front-End Developer",
+	"name": "Julie N. Burke",
+	"role": "Front-End Developer",
 	"contacts": {
-		"email": "jdizzle@gmail.com",
+		"email": "jnb.developer@gmail.com",
 		"location": "Gloucester, UK",
-		"mobile": "123-456-7890",
-		"github": "jnburke1",
-		"twitter": "jdizzle"
+		"mobile": "678-500-9081",
+		"github": "jnpj1",
+		"twitter": "jnbdeveloper"
 	},
-	"bioPic": "images/kitten.jpg",
-	"welcomeMessage": "Seeking opportunities to further develop my skills",
-	"skills": ["front end development", "microbiology", "playing piano"]
+	"bioPic": "images/logo.png",
+	"welcomeMessage": "Seeking opportunities to apply and further develop my skills",
+	"skills": ["front end development", "microbiology", "molecular biology"]
 }
 
 var work = {
 	"jobs": [
-		{
-		"employer": "FDA",
-		"title": "Microbiologist",
-		"location": "Denver, CO",
-		"dates": "2015",
-		"description": "Performed microbiology techniques to detect pathogens in food.",
-		"url": "http://www.fda.gov/ScienceResearch/FieldScience/ucm258934.htm"
-		},
 		{
 		"employer": "Colorado State Public Health Laboratory",
 		"title": "Public Health Microbiologist",
@@ -72,16 +64,16 @@ var education = {
 		"title": "JavaScript and jQuery",
 		"school": "Codecademy",
 		"date": 2016,
-		"url": "https://www.codecademy.com/learn"			
+		"url": "https://www.codecademy.com/learn"
 		},
 		{
 		"title": "Learn to Program: The Fundamentals",
 		"school": "Coursera",
 		"date": 2013,
-		"url": "https://www.coursera.org/course/programming1"			
+		"url": "https://www.coursera.org/course/programming1"
 		}
 	]
-}	
+}
 
 var projects = {
 	"projects": [
@@ -93,7 +85,7 @@ var projects = {
 		"url": "http://www.ascp.org/certification"
 		},
 		{
-		"title": "PHM2125",
+		"title": "PHM",
 		"dates": "2012 - present",
 		"description": "California Public Health Microbiologist Certificate",
 		"images": "images/cdph.png",
@@ -150,7 +142,7 @@ work.display = function() {
 		$(".work-entry:last").append(formattedWorkDates);
 		$(".work-entry:last").append(formattedLocation);
 		$(".work-entry:last").append(formattedDescription);
-	}	
+	}
 }
 
 projects.display = function() {

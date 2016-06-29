@@ -61,6 +61,10 @@ h5 {
 
 }
 
+.role {
+  padding-left: 10px;
+}
+
 .work-entry a,
 .project-entry a {
   display: block;
@@ -100,16 +104,25 @@ a {
   display: inline-block;
 }
 
+#topContacts {
+  margin-bottom: 20px;
+}
+
 .welcome-message {
   font-style: italic;
   font-size: 18px;
   color: #f3f3f3;
   line-height: 28px;
+  padding-left: 0;
+  display: flex;
+  justify-content: space-around;
 }
 
 #skills-h3 {
   color: #4d0026;
-  display: none;
+  width: 80%;
+  margin-left: 10%;
+
 }
 
 .pop-text {
@@ -156,13 +169,10 @@ ul {
 .biopic {
   float: left;
   padding: 10px;
-  width: 200px;
+  width: 100px;
   display: none;
-}
-
-img {
-  padding: 10px;
-  max-width:100%;
+  border-radius: 110px;
+  margin-top: 10px;
 }
 
 span {
@@ -175,7 +185,7 @@ span {
 
 #info-window {
   color: dark-gray;
-  font-family: "Roboto", sans-serif;  
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   text-shadow: 1px 1px 1px gray;
 }
