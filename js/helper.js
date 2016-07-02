@@ -1,28 +1,17 @@
-/*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span class="role">%data%</span><hr>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="pop-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="pop-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="pop-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="pop-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="pop-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="pop-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="pop-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item contact-info"><span class="pop-text">mobile</span><span class="white-text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item contact-info"><span class="pop-text">email</span><span class="white-text">%data%</span></li>';
+var HTMLtwitter = '<li class="flex-item contact-info"><span class="pop-text">twitter</span><span class="white-text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item contact-info"><span class="pop-text">github</span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item contact-info"><span class="pop-text">location</span><span class="white-text">%data%</span></li>';
 
-var HTMLbioPic = '<img src="%data%" class="biopic">';
+var HTMLbiopic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skill-list" class="flex-box"></ul>';
+var HTMLskills = '<li class="flex-item skill"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkURL = '<a href="%data%" target="_blank">';
@@ -37,10 +26,10 @@ var HTMLprojectURL = '<a href="%data%" target="_blank">';
 var HTMLprojectTitle = '%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectImage = '<img class="project-image" src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolURL = '<a href="%data%" target="_blank">'
+var HTMLschoolURL = '<a href="%data%" target="_blank">';
 var HTMLschoolName = '%data%';
 var HTMLschoolDegree = ' - %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
@@ -48,21 +37,22 @@ var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<p>Major: %data%</p>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineStart = '<div class="online-entry"></div>'
+var HTMLonlineStart = '<div class="online-entry"></div>';
 var HTMLonlineURL = '<a href="%data%" target="_blank">';
 var HTMLonlineTitle = '%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 
-var HTMLconnectEmail = '<li class="email-icon"><a href="mailto:%data%" target="_blank"><iron-icon icon="communication:email"></iron-icon></a></li>'
-var HTMLconnectPhone = '<li class="phone-icon"><a href="tel:+1-%data%"><iron-icon icon="communication:call"></iron-icon></a></li>'
-var HTMLconnectSkype = '<li><div id="SkypeButton_Call_echo123_1"><script type="text/javascript">Skype.ui({"name": "call","element": "SkypeButton_Call_echo123_1","participants": ["%data%"],"imageColor": "white","imageSize": 24});</script></div></li>'
+var HTMLconnectEmail = '<li class="email icon"><a href="mailto:%data%" target="_blank"><i class="fa fa-envelope fa-2x"></i></a></li>';
+var HTMLconnectPhone = '<li class="phone icon"><a href="tel:+1-%data%"><span class="fa fa-phone fa-2x"></span></a></li>';
+var HTMLconnectGithub = '<li class="github icon"><a href="https://github.com/%data%" target="_blank"><span class="fa fa-github fa-2x"></span></a></li>';
+var HTMLconnectSkype = '<li class="skype icon"><a href="skype:%data%?call"><span class="fa fa-skype fa-2x"></span></a></li>';
 
 var googleMap = '<div id="map"></div>';
 
 
 // Code for logging click locations
-clickLocations = [];
+var clickLocations = [];
 
 function logClicks(x,y) {
   clickLocations.push(
@@ -90,7 +80,8 @@ function initializeMap() {
   var locations;
 
   var mapOptions = {
-    disableDefaultUI: true
+    disableDefaultUI: true,
+    minZoom: 2
   };
 
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
@@ -127,7 +118,7 @@ function initializeMap() {
       title: name
     });
 
-    var HTMLcontent = "<div id='info-window'>" + name + "<div>";
+    var HTMLcontent = '<div id="info-window">' + name + '<div>';
 
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.setContent(HTMLcontent);
@@ -169,7 +160,8 @@ function initializeMap() {
       locations.forEach(function(place){
       // the search request object
       var request = {
-        query: place
+        query: place,
+        key: 'AIzaSyBC9WQyjpf4aQ9ffs8tvZPaPLQVaK-ZGgQ'
       };
 
       // Actually searches the Google Maps API for location data and runs the callback
