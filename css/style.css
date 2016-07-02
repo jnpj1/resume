@@ -71,6 +71,10 @@ span {
   padding: 5px;
 }
 
+#main {
+  overflow-y: hidden;
+}
+
 .clear-fix {
   overflow: auto;
 }
@@ -145,9 +149,8 @@ span {
 .biopic {
   float: left;
   padding: 10px;
-  width: 100px;
-  display: none;
-  border-radius: 110px;
+  width: 95px;
+  border-radius: 50%;
   margin: 10px 0 0 -20px;
 }
 
@@ -327,12 +330,17 @@ span {
 }
 
 @media only screen and (max-width: 370px) {
+  h2 {
+    font-size: 20px;
+  }
+
   #name {
-    font-size: 23px;
+    font-size: 21px;
   }
 
   .role {
   font-size: 14px;
+  padding-top: 7px;
   }
 
   #skills-h3 {
@@ -341,12 +349,5 @@ span {
 
   #lets-connect {
     margin-top: 20%;
-  }
-}
-
-@media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
-    display: block;
   }
 }
