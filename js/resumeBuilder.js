@@ -1,8 +1,8 @@
 var bio = {
 	'name': 'Julie N. Burke',
-	'role': 'Front-End Developer',
+	'role': 'Junior Full-Stack Developer',
 	'contacts': {
-		'mobile': '678-500-9081',
+		'mobile': '07575523332',
 		'email': 'jnb.developer@gmail.com',
 		'github': 'jnpj1',
 		'twitter': 'jnbdeveloper',
@@ -10,8 +10,9 @@ var bio = {
 	},
 	'welcomeMessage': 'Results-driven web developer with excellent analytical skills, strong problem-solving ability, and enthusiasm for developing technical proficiencies',
 	'skills': [
-				'Languages: HTML, CSS, JavaScript',
-				'Frameworks/Libraries: Bootstrap, JQuery, Knockout.js, Jasmine',
+				'Languages: HTML, CSS, JavaScript, Python',
+				'Frameworks/Libraries: Bootstrap, JQuery, Knockout.js, Backbone.js, Jasmine',
+				'Databases: SQL, MongoDB',
 				'Build Tools: Grunt, Bower, npm',
 				'Version Control: Git/GitHub',
 				'Performance Optimization',
@@ -22,6 +23,14 @@ var bio = {
 
 var work = {
 	'jobs': [
+		{
+			'employer': 'Food and Drug Administration',
+			'title': 'Microbiologist',
+			'location': 'Denver, CO',
+			'dates': '2015',
+			'description': 'Assayed food samples for presence of pathogens and produced comprehensive reports of results.',
+			'url': 'http://www.fda.gov/ScienceResearch/FieldScience/ucm258934.htm'
+		},
 		{
 			'employer': 'Colorado State Public Health Laboratory',
 			'title': 'Public Health Microbiologist',
@@ -72,8 +81,26 @@ var education = {
 		{
 			'title': 'Front End Web Developer Nanodegree',
 			'school': 'Udacity',
-			'dates': 'In Progress',
+			'dates': '2016',
 			'url': 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
+		},
+		{
+			'title': 'Intro to Relational Databases',
+			'school': 'Udacity',
+			'dates': '2016',
+			'url': 'https://www.udacity.com/course/intro-to-relational-databases--ud197'
+		},
+		{
+			'title': 'Programming Foundations of Python',
+			'school': 'Udacity',
+			'dates': '2016',
+			'url': 'https://www.udacity.com/course/programming-foundations-with-python--ud036'
+		},
+		{
+			'title': 'Intro to Backend',
+			'school': 'Udacity',
+			'dates': '2016',
+			'url': 'https://www.udacity.com/course/intro-to-backend--ud171'
 		},
 		{
 			'title': 'Learn to Program: The Fundamentals',
@@ -89,9 +116,44 @@ var projects = {
 		{
 			'title': 'Portfolio',
 			'dates': '2016',
-			'description': 'Built responsive portfolio site with Bootstrap',
+			'description': 'Responsive portfolio site built with Bootstrap',
 			'images': ['images/portfolio.png'],
 			'url': 'https://jnpj1.github.io'
+		},
+		{
+			'title': 'Multi-User Blog',
+			'dates': '2016',
+			'description': 'Blog for multiple users to post, like, and comment on content.  Built with Python, Jinja2, and Google App Engine.',
+			'images': ['images/multiuserblog.png', 'images/multiuserblog2.png'],
+			'url': 'https://multiuserblog-146317.appspot.com/'
+		},
+		{
+			'title': 'Calorie Tracker',
+			'dates': '2016',
+			'description': 'Single-page, responsive application to tally and track daily calorie counts, built using Backbone.js and local storage.',
+			'images': ['images/calorietracker.png'],
+			'url': 'https://jnpj1.github.io/health-tracker/'
+		},
+		{
+			'title': 'Calorie Tracker - Firebase Version',
+			'dates': '2016',
+			'description': 'Calorie tracker application refactored to improve functionality with Firebase authentication and database',
+			'images': ['images/firebasetracker.png'],
+			'url': 'https://jnpj1.github.io/health-tracker-firebase/'
+		},
+		{
+			'title': 'National Park Finder',
+			'dates': '2016',
+			'description': 'Single-page, responsive application to provide information on national parks and to choose favorites.  Built with Knockout.js, Google Map API, and Wikipedia API.',
+			'images': ['images/nationalpark.png', 'images/nationalpark2.png'],
+			'url': 'https://jnpj1.github.io/national-park-finder'
+		},
+		{
+			'title': 'Cat Clicker',
+			'dates': '2016',
+			'description': 'Single-page click-tracking app with JavaScript MVC design pattern',
+			'images': ['images/catclicker.png'],
+			'url': 'https://jnpj1.github.io/cat-clicker'
 		},
 		{
 			'title': 'Girls Vs. Bugs Arcade Game',
@@ -101,18 +163,18 @@ var projects = {
 			'url': 'https://jnpj1.github.io/arcade-game'
 		},
 		{
-			'title': 'Cat Clicker',
+			'title': 'Website Performance Optimisation',
 			'dates': '2016',
-			'description': 'Built single-page click-tracking app with JavaScript MVC design pattern',
-			'images': ['images/catclicker.png'],
-			'url': 'https://jnpj1.github.io/cat-clicker'
+			'description': 'Optimisation of existing portfolio and pizza sites to increase PageSpeed score and to achieve rendering at 60 frames per second',
+			'images': ['images/performance.png', 'images/performance2.png'],
+			'url': 'http://jnpj1.github.io/performance-optimization/'
 		},
 		{
-			'title': 'National Park Finder',
+			'title': 'Blog Image Optimisation',
 			'dates': '2016',
-			'description': 'Created a single-page, responsive application to provide pictures and information on national parks.  Built with Knockout.js, Google Map API, and Wikipedia API.',
-			'images': ['images/nationalpark.png', 'images/nationalpark2.png'],
-			'url': 'https://jnpj1.github.io/national-park-finder'
+			'description': 'Optimisation of existing blog site performance and image responsiveness using picture element and automated image optimisation',
+			'images': ['images/blog.png', 'images/blog2.png'],
+			'url': 'https://jnpj1.github.io/responsive-image-blog/'
 		}
 	]
 };
